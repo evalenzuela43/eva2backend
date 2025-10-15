@@ -1,0 +1,11 @@
+<!-- medico_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>¿Estás seguro de que deseas eliminar a {{ object.nombre }}?</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar eliminación</button>
+  </form>
+  <a href="{% url 'medico-list' %}">Cancelar</a>
+{% endblock %}

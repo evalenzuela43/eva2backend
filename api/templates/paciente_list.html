@@ -1,0 +1,18 @@
+<!-- paciente_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Pacientes</h2>
+  <ul>
+    {% for paciente in pacientes %}
+      <li>
+        <strong>{{ paciente.nombre }}</strong> - Edad: {{ paciente.edad }} - Estado: {{ paciente.estado }}
+        <a href="{% url 'paciente-edit' paciente.id %}">Editar</a> |
+        <a href="{% url 'paciente-delete' paciente.id %}">Eliminar</a>
+      </li>
+    {% empty %}
+      <li>No hay pacientes registrados.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'paciente-create' %}">Crear nuevo paciente</a>
+{% endblock %}

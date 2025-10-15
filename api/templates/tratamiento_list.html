@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Tratamientos</h2>
+  <ul>
+    {% for tratamiento in tratamientos %}
+      <li>{{ tratamiento.nombre }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'tratamiento-create' %}">Crear Nuevo Tratamiento</a>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% load static %}  <!-- Cargar el tag static -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Salud Vital</title>
+    <!-- Enlazar el archivo CSS para los estilos -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #6a4c9c;  /* Morado oscuro */
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        nav {
+            background-color: #5c3f8b;  /* Morado más claro */
+            color: white;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #8e61b8;  /* Morado claro */
+            padding: 20px;
+        }
+
+        .sidebar a {
+            color: white;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #5c3f8b;  /* Hover de la sidebar */
+            padding-left: 10px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #6a4c9c;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Estilo de mensajes (si es necesario) */
+        .messages {
+            background-color: #ffd700;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Clínica Salud Vital
+    </header>
+
+    <nav>
+        <a href="{% url 'swagger-ui' %}">API Docs</a>
+
+        <a href="{% url 'admin:index' %}">Admin</a>
+    </nav>
+
+    <div class="container">
+        <div class="sidebar">
+            <h3>GESTIÓN</h3>
+        <nav>
+            <a href="{% url 'paciente-list-ui' %}">Pacientes</a>
+            <a href="{% url 'medico-list-ui' %}">Médicos</a>
+            <a href="{% url 'consulta-list-ui' %}">Consultas</a>
+            <a href="{% url 'especialidad-list-ui' %}">Especialidades</a>
+    </nav>
+
+        </div>
+
+        <div class="main-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer>
+        <p>Salud Vital Ltda. - 2025</p>
+    </footer>
+</body>
+</html>

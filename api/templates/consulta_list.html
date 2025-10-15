@@ -1,0 +1,18 @@
+<!-- consulta_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Consultas</h2>
+  <ul>
+    {% for consulta in consultas %}
+      <li>
+        Paciente: {{ consulta.paciente.nombre }} - Médico: {{ consulta.medico.nombre }} - Fecha: {{ consulta.fecha }}
+        <a href="{% url 'consulta-edit' consulta.id %}">Editar</a> |
+        <a href="{% url 'consulta-delete' consulta.id %}">Eliminar</a>
+      </li>
+    {% empty %}
+      <li>No hay consultas registradas.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'consulta-create' %}">Crear nueva consulta</a>
+{% endblock %}

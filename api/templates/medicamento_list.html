@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Medicamentos</h2>
+  <ul>
+    {% for medicamento in medicamentos %}
+      <li>{{ medicamento.nombre }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'medicamento-create' %}">Crear Nuevo Medicamento</a>
+{% endblock %}

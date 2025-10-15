@@ -1,0 +1,18 @@
+<!-- medico_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Médicos</h2>
+  <ul>
+    {% for medico in medicos %}
+      <li>
+        <strong>{{ medico.nombre }}</strong> - Especialidad: {{ medico.especialidad.nombre }}
+        <a href="{% url 'medico-edit' medico.id %}">Editar</a> |
+        <a href="{% url 'medico-delete' medico.id %}">Eliminar</a>
+      </li>
+    {% empty %}
+      <li>No hay médicos registrados.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'medico-create' %}">Crear nuevo médico</a>
+{% endblock %}

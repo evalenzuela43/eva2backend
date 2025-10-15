@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Recetas Médicas</h2>
+  <ul>
+    {% for receta in recetas %}
+      <li>{{ receta.paciente.nombre }} - {{ receta.medico.nombre }} - {{ receta.fecha }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'receta-create' %}">Crear Nueva Receta Médica</a>
+{% endblock %}

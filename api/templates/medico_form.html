@@ -1,0 +1,12 @@
+<!-- medico_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% if object %}Editar{% else %}Crear{% endif %} Médico</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if object %}Actualizar{% else %}Crear{% endif %}</button>
+  </form>
+  <a href="{% url 'medico-list' %}">Volver a la lista</a>
+{% endblock %}

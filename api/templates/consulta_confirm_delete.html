@@ -1,0 +1,11 @@
+<!-- consulta_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>¿Estás seguro de que deseas eliminar esta consulta?</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar eliminación</button>
+  </form>
+  <a href="{% url 'consulta-list' %}">Cancelar</a>
+{% endblock %}
